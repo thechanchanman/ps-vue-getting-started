@@ -4,10 +4,12 @@ var growler = new Vue({
     data: {
         appName: 'Growler',
         appLogo: 'img/logo.png',
-        appStyle: {
-            color: '#FF6A00',
-            fontFamily: 'Verdana',
-            margin: 0
-        }
+        accentColor: 'accent-color',
+        headers: 'headers',
+        query: '',
+        searchIndexes: [],
+        searchIndex: 'beers',
+        selectedSearchIndex: 'beers',
+        selectedSearchIndexes: []
     }
 });

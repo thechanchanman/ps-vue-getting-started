@@ -10,6 +10,7 @@ var growler = new Vue({
         searchIndexes: [],
         searchIndex: 'beers',
         selectedSearchIndex: 'beers',
-        selectedSearchIndexes: []
+        selectedSearchIndexes: [],
+        result: ''
     }
 });

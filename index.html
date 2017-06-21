@@ -7,7 +7,7 @@
         <div id="growler">
             <img :src="appLogo" alt="Growler">
             <h1 v-once v-bind:class="[accentColor, headers]">{{ appName }}</h1>
-            <input v-model="query" placeholder="Search..." type="text">
+            <input v-model.trim="query" placeholder="Search..." type="text">
             <div>Searching for: {{ query }}</div>
             <label><input v-model="searchIndexes" value="beers" type="checkbox">Beers</label>
             <label><input v-model="searchIndexes" value="breweries" type="checkbox">Breweries</label>
@@ -36,6 +36,10 @@
             </select>
             <br>
             <small>selected: {{ selectedSearchIndexes }}</small>
+            <br><br>
+            <input v-model.number="result" placeholder="2+3" type="text">
+            <br>
+            <small>is it a number? {{ Number.isInteger(result) }}</small>
         </div>
         <script type="text/javascript" src="libs/vue.js"></script>
         <script type="text/javascript" src="libs/axios.min.js"></script>

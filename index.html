@@ -1,11 +1,45 @@
 <html>
     <head>
         <title>Growler</title>
+        <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
         <div id="growler">
-            <h1 v-once>{{ appName }}</h1>
             <img :src="appLogo" alt="Growler">
+            <h1 v-once v-bind:class="[accentColor, headers]">{{ appName }}</h1>
+            <input v-model.trim="query" placeholder="Search..." type="text">
+            <div>Searching for: {{ query }}</div>
+            <label><input v-model="searchIndexes" value="beers" type="checkbox">Beers</label>
+            <label><input v-model="searchIndexes" value="breweries" type="checkbox">Breweries</label>
+            <br>
+            <small>selected: {{ searchIndexes }}</small>
+            <br>
+            <label><input v-model="searchIndex" value="beers" type="radio">Beers</label>
+            <label><input v-model="searchIndex" value="breweries" type="radio">Breweries</label>
+            <br>
+            <small>selected: {{ searchIndex }}</small>
+            <br><br>
+            <select v-model="selectedSearchIndex">
+                <option value="beers">Beers</option>
+                <option value="breweries">Breweries</option>
+                <option value="distilleries">Distilleries</option>
+                <option value="pubs">Pubs</option>
+            </select>
+            <br>
+            <small>selected: {{ selectedSearchIndex }}</small>
+            <br><br>
+            <select multiple v-model="selectedSearchIndexes">
+                <option value="beers">Beers</option>
+                <option value="breweries">Breweries</option>
+                <option value="distilleries">Distilleries</option>
+                <option value="pubs">Pubs</option>
+            </select>
+            <br>
+            <small>selected: {{ selectedSearchIndexes }}</small>
+            <br><br>
+            <input v-model.number="result" placeholder="2+3" type="text">
+            <br>
+            <small>is it a number? {{ Number.isInteger(result) }}</small>
         </div>
         <script type="text/javascript" src="libs/vue.js"></script>
         <script type="text/javascript" src="libs/axios.min.js"></script>
